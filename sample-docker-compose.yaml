@@ -1,0 +1,56 @@
+CassandraSeed
+  environment:
+    RANCHER_ENABLE: 'true'
+    RANCHER_SEED_SERVICE: CassandraSeed
+    CASSANDRA_RACK: 'rack1'
+    CASSANDRA_DC: aws-us-east
+    CASSANDRA_ENDPOINT_SNITCH: GossipingPropertyFileSnitch
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: usman/docker-rancher-cassandra
+  stdin_open: true
+  volumes:
+    - /var/lib/cassandra
+Cassandra1:
+  environment:
+    RANCHER_ENABLE: 'true'
+    RANCHER_SEED_SERVICE: CassandraSeed
+    CASSANDRA_RACK: 'rack1'
+    CASSANDRA_DC: aws-us-east
+    CASSANDRA_ENDPOINT_SNITCH: GossipingPropertyFileSnitch
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: usman/docker-rancher-cassandra
+  stdin_open: true
+  volumes:
+    - /var/lib/cassandra
+Cassandra2:
+  environment:
+    RANCHER_ENABLE: 'true'
+    RANCHER_SEED_SERVICE: CassandraSeed
+    CASSANDRA_RACK: 'rack2'
+    CASSANDRA_DC: aws-us-east
+    CASSANDRA_ENDPOINT_SNITCH: GossipingPropertyFileSnitch
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: usman/docker-rancher-cassandra
+  stdin_open: true
+  volumes:
+    - /var/lib/cassandra
+Cassandra3:
+  environment:
+    RANCHER_ENABLE: 'true'
+    RANCHER_SEED_SERVICE: CassandraSeed
+    CASSANDRA_RACK: 'rack3'
+    CASSANDRA_DC: aws-us-east
+    CASSANDRA_ENDPOINT_SNITCH: GossipingPropertyFileSnitch
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: usman/docker-rancher-cassandra
+  stdin_open: true
+  volumes:
+    - /var/lib/cassandra
