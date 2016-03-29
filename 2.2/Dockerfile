@@ -1,16 +1,8 @@
-FROM debian:jessie-backports
-
-RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 514A2AD631A57A16DD0047EC749D6EEC0353B12C
-
-RUN echo 'deb http://www.apache.org/dist/cassandra/debian 22x main' >> /etc/apt/sources.list.d/cassandra.list
-
-ENV CASSANDRA_VERSION 2.2.4
+FROM cassandra:2.2.5
 
 RUN apt-get update \
-	&& apt-get install -y curl cassandra="$CASSANDRA_VERSION" \
+	&& apt-get install -y curl \
 	&& rm -rf /var/lib/apt/lists/*
-
-ENV CASSANDRA_CONFIG /etc/cassandra
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
